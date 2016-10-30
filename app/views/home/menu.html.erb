@@ -1,0 +1,60 @@
+<div class="row text-center">
+  <div class="btn-group">
+    <%= link_to "All", menu_path, class: 'btn btn-default' %>
+    <% Section.all.each do |section| %>
+      <%= link_to section.name, menu_path(section: section.id), class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default">
+              <span><i class="glyphicon glyphicon-arrow-up"></i></span>
+            </button>
+          </span>
+          <span class="form-control">Alphabetical</span>
+          <span class="input-group-btn">
+            <button class="btn btn-default">
+              <span><i class="glyphicon glyphicon-arrow-down"></i></span>
+            </button>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default">
+              <span><i class="glyphicon glyphicon-arrow-up"></i></span>
+            </button>
+          </span>
+          <span class="form-control">Price</span>
+          <span class="input-group-btn">
+            <button class="btn btn-default">
+              <span><i class="glyphicon glyphicon-arrow-down"></i></span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" id="food_item_display">
+  <div class="row">
+    <% @food_items.each do |food_item| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <%= image_tag food_item.image_url %>
+          <div class="caption">
+            <span class='pull-right'>$<%= number_with_precision(food_item.price, :precision => 2) %></span>
+            <h3><%= food_item.name %></h3>
+            <p><%= food_item.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
