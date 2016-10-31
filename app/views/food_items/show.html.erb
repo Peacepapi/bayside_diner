@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= image_tag(@food_item.image_url, class: 'img-responsive show_fi_img') %>
+    </div>
+    <div class="col-md-4">
+      <h1><%= @food_item.name %></h1>
+      <p><%= @food_item.description %></p>
+      <br>
+      <p>Price: $ <%= @food_item.priceFormatted %></p>
+      <%= link_to 'Order', '#', class: 'btn btn-default' %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 class FoodItem < ApplicationRecord
   belongs_to :section
-  validates :name, :section, :price, presence: true
+  belongs_to :order
+  validates :name, :section, :price, :description, presence: true
   validates :price, numericality: true
 
   def image_url
@@ -12,7 +13,7 @@ class FoodItem < ApplicationRecord
     end
   end
 
-  def sort_order(items, dir)
-    items.order(items.name dir)
+  def priceFormatted
+    ActionController::Base.helpers.number_with_precision(self.price, :precision => 2)
   end
 end
