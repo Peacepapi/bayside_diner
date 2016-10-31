@@ -11,4 +11,8 @@ class FoodItem < ApplicationRecord
       #"http://loremflickr.com/320/240/#{name.gsub(' ','+')}"
     end
   end
+
+  def sort_order(items, dir)
+    items.order(items.name dir)
+  end
 end

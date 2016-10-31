@@ -14,7 +14,7 @@ class FoodItemsController < ApplicationController
     if @food_item.save
       redirect_to food_items_path
     else
-      render new
+      render :new
     end
   end
 
