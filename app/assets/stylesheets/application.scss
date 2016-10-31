@@ -1,6 +1,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
+
  .glyphicon {
    top: 0;
  }
+ .thumbnail {
+   height: 400px;
+ }
+ .thumbnail img {
+   max-height: 300px;
+}
