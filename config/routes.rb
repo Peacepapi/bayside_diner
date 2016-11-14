@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     delete '/deleteItem', to: 'order_details#deleteItem'
     post '/addItem', to: 'order_details#addItem'
   end
-  resources :order_details ,only: [:index]
+  get 'cart' => 'order_details#index'
+  resources :orders ,only: [:show, :create]
 
 end

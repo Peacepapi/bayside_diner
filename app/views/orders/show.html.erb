@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h1 class='text-center'>Order</h1>
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Thank you for your order</h1>
+      <hr>
+      <h2>Your Order Details</h2>
+      <hr>
+      <p>Name: <%= @order.customer_name %></p>
+      <p>Phone: <%= @order.phone %></p>
+      <p>Address: <%= @order.address %></p>
+      <h2>The Following Items Were Ordered</h2>
+      <hr>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -10,26 +18,20 @@
             <th>Quantity</th>
           </tr>
         </thead>
-        <% @order_details.each do |itemKey, quantity| %>
+        <% @order.getDetails.each do |itemKey, quantity| %>
           <% item = FoodItem.find(itemKey) %>
           <tbody>
             <tr>
               <td><%= item.name %></td>
               <td><%= number_to_currency(item.price) %></td>
               <td>
-                <%= link_to "+", food_item_addItem_path(item), method: :POST, class:'btn btn-default'%>
                 <%= quantity %>
-                <%= link_to "-", food_item_deleteItem_path(item), method: :DELETE, class:'btn btn-default'%>
               </td>
             </tr>
           </tbody>
-        <% end %>
+      <% end %>
       </table>
       <p class="pull-right">Total: <%= number_to_currency(@total) %></p>
     </div>
-    <div class="col-md-6">
-      <%= render 'orders/form', order: @order %>
-    </div>
   </div>
-
 </div>

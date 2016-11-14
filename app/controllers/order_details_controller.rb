@@ -1,4 +1,5 @@
 class OrderDetailsController < ApplicationController
+
   def addToCart
     # find the item by the params id
     item = params[:food_item_id]
@@ -8,13 +9,14 @@ class OrderDetailsController < ApplicationController
   end
 
   def index
+    @order = Order.new
     session[:cart] ||= {}
     @order_details = session[:cart]
     @total = 0
-    
+
     @order_details.each do |itemKey, quantity|
       item = FoodItem.find(itemKey)
-      @total += item.priceFormatted.to_f * quantity
+      @total += item.price * quantity
     end
   end
 

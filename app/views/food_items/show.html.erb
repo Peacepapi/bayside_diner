@@ -7,7 +7,7 @@
       <h1><%= @food_item.name %></h1>
       <p><%= @food_item.description %></p>
       <br>
-      <p>Price: $ <%= @food_item.priceFormatted %></p>
+      <p>Price:<%= number_to_currency(@food_item.price) %></p>
       <%= render "order_details/create" %>
     </div>
   </div>

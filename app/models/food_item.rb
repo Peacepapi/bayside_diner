@@ -1,6 +1,5 @@
 class FoodItem < ApplicationRecord
   belongs_to :section
-  has_many :order_details
   validates :name, :section, :price, :description, presence: true
   validates :price, numericality: true
 

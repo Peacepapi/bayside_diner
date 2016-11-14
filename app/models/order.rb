@@ -1,3 +1,5 @@
 class Order < ApplicationRecord
-  has_many :food_items
+  def getDetails
+    JSON.parse self.order_details.gsub('=>', ':')
+  end
 end

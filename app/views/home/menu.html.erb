@@ -15,7 +15,7 @@
         <div class="thumbnail">
           <%= link_to image_tag(food_item.image_url), food_item_path(food_item) %>
           <div class="caption">
-            <span class='pull-right'>$<%= food_item.priceFormatted %></span>
+            <span class='pull-right'><%= number_to_currency(food_item.price) %></span>
             <h3><%= link_to food_item.name, food_item_path(food_item) %></h3>
             <p><%= food_item.description %></p>
           </div>
