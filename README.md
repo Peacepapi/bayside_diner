@@ -1,5 +1,4 @@
 # README
-Heroku: https://polar-shelf-81620.herokuapp.com/
 ## User Stories
 
 ### Required:
